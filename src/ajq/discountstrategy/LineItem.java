@@ -18,7 +18,28 @@ public class LineItem {
         this.product = product;
         this.qty = qty;
     }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
        
+    
+    
+    
+    
+    
     public static void main(String[] args) {
         LineItem enty = new LineItem("A101",1);
         System.out.println(enty.product.getDiscountAmt(enty.qty));

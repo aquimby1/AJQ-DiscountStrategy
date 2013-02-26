@@ -11,22 +11,17 @@ package ajq.discountstrategy;
 class Receipt {
     private Customer customer;
     private LineItem[] lineItems;
-    private String custName;
-    private String cusId;
-    private int qty;
 
-    public Receipt(String custId) {
-        this.cusId = custId;
-    }
-
-    public Receipt() {
+    public Receipt(String custId) {        
         lineItems = new LineItem[0];
+        lookUpCustomer(custId);
     }
+
 
     public void lookUpCustomer(String custId) {
         FakeDatabase db = new FakeDatabase();
         customer = db.findCustomer(custId);
-        custName = customer.getCustName(); 
+        
     }
 
     
@@ -41,14 +36,6 @@ class Receipt {
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
     }
-    
-    public String getCustName() {
-        return custName;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
-    }
 
     public LineItem[] getLineItems() {
         return lineItems;
@@ -58,9 +45,26 @@ class Receipt {
         this.lineItems = lineItems;
     }
     
-    public static void main(String[] args) {
-        Receipt entry = new Receipt();
-        entry.addItemToSale("100", 2);
-        System.out.println(entry.getLineItems());
+    public void outPutRecipt(){
+        System.out.println("Customer Info \nName: " + customer.getCustName() +"\nCustomer ID:"+ customer.getCustId()+"\n");
+        System.out.println("Product ID \t Item Name \t Quantity \t Unit Price \t Line Total");
+        System.out.println("---------------------------------------------------------------------------");
+        for(int i = 0; i < lineItems.length; i++){
+            System.out.println(lineItems[i].getProduct().getProdId()+"\t"+lineItems[i].getProduct().getProdName()+"\t"+lineItems[i].getQty()
+                    +"\t"+lineItems[i].getProduct().getUnitCost());
+            
+            
+            
+        }
+        
+        
     }
+    
+    
+    public static void main(String[] args) {
+        Receipt entry = new Receipt("100");
+        entry.addItemToSale("A101", 2);
+        System.out.println(entry.getLineItems()[0].getProduct().getProdName());
+    }
+    
 }
