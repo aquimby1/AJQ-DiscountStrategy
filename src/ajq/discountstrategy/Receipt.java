@@ -13,17 +13,25 @@ class Receipt {
     private LineItem[] lineItems;
     private String custName;
     private String cusId;
-    
+    private int qty;
+
+    public Receipt(String custId) {
+        this.cusId = custId;
+    }
+
+    public Receipt() {
+        lineItems = new LineItem[0];
+    }
 
     public void lookUpCustomer(String custId) {
         FakeDatabase db = new FakeDatabase();
-        customer = db.findCustomer("100");
+        customer = db.findCustomer(custId);
         custName = customer.getCustName(); 
     }
 
     
     public void addItemToSale(String prodId, int qty) {
-        LineItem item = new LineItem();
+        LineItem item = new LineItem(prodId,qty);
         addToArray(item);
     }
     
@@ -53,6 +61,6 @@ class Receipt {
     public static void main(String[] args) {
         Receipt entry = new Receipt();
         entry.addItemToSale("100", 2);
-        System.out.println(entry.getLineItems()[0]);
+        System.out.println(entry.getLineItems());
     }
 }

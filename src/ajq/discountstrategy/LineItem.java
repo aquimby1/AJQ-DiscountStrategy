@@ -10,29 +10,17 @@ package ajq.discountstrategy;
  */
 public class LineItem {
     private Product product;
-    private String[] lineItem;
     private int qty;
-    private String prodId;
-    private String custName;
-    private String custId;
-    private double discountAmt;
-    private String prodName;
-    private double unitCost;
 
-    public String[] getLineItem() {
+    public LineItem(String prodId,int qty) {
         FakeDatabase db = new FakeDatabase();
         Product product = db.findProduct(prodId);
-        prodName = product.getProdName();
-        unitCost = product.getUnitCost();
-        discountAmt = product.getDiscountAmt(qty);
-                
-        
-        return lineItem;
+        this.product = product;
+        this.qty = qty;
     }
-    
+       
     public static void main(String[] args) {
-        FakeDatabase db = new FakeDatabase();
-        Product product = db.findProduct("A101");
-        System.out.println(product.getUnitCost());
+        LineItem enty = new LineItem("A101",1);
+        System.out.println(enty.product.getDiscountAmt(enty.qty));
     }
 }

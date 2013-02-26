@@ -12,7 +12,7 @@ public class CashRegister {
     private Receipt receipt;
     
     public void startNewSale(String custId) {
-//        receipt = new Receipt(custId);
+        receipt = new Receipt(custId);
     }
 
     public void addItemToSale(String prodId,int qty) {
