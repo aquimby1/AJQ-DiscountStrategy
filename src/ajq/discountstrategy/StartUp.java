@@ -15,13 +15,13 @@ public class StartUp {
      */
     public static void main(String[] args) {
         String custId = "100";
-        String prodId = "A101";
-        int qty = 2;
+        
         
         CashRegister cr = new CashRegister();
         cr.startNewSale(custId);
-        cr.addItemToSale(prodId,qty);
-        cr.addItemToSale("b235",1);
+        cr.addItemToSale("A101",1);
+        cr.addItemToSale("B205",3);
+        cr.addItemToSale("C222",2);
         cr.finilizeSale();
     }
 }

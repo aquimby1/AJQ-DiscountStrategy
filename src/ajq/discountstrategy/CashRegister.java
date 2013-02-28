@@ -20,7 +20,9 @@ public class CashRegister {
     }
 
     public void finilizeSale() {
-        receipt.outPutRecipt();
+        System.out.println(receipt.outPutReceipt());
+        
+        
     }
     
 }
