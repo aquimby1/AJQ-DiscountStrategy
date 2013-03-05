@@ -5,8 +5,9 @@
 package ajq.discountstrategy;
 
 /**
- *
+ * This is the discount used if there is a certain percentage off an item
  * @author Andrew Quimby
+ * @version 1.00
  */
 public class VariableRateDiscount implements DiscountStrategy{
     private double discountRate = .15;

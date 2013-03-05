@@ -5,8 +5,9 @@
 package ajq.discountstrategy;
 
 /**
- *
+ * This is the discount interface for the structuring of the discounts
  * @author Andrew Quimby
+ * @version 1.00
  */
 public interface DiscountStrategy {
     public abstract double getDiscountAmt(double unitCost, int qty);

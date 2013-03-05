@@ -5,13 +5,19 @@
 package ajq.discountstrategy;
 
 /**
- *
+ * This is where the customer information is stored
  * @author Andrew Quimby
+ * @version 1.00
  */
 public class Customer {
     private String custId;
     private String custName;
 
+    /**
+     * This populates the customer properties
+     * @param custId
+     * @param custName 
+     */
     public Customer(String custId, String custName) {
         this.custId = custId;
         this.custName = custName;

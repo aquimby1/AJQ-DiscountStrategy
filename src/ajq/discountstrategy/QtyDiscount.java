@@ -5,8 +5,9 @@
 package ajq.discountstrategy;
 
 /**
- *
+ * This is te discount used if there id a quantity discount
  * @author Andrew Quimby
+ * @version 1.00
  */
 public class QtyDiscount implements DiscountStrategy{
     private double discountRate = .15;

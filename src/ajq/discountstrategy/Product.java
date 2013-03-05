@@ -5,8 +5,9 @@
 package ajq.discountstrategy;
 
 /**
- *
+ * This is where the product properties are stored
  * @author Andrew Quimby
+ * @version 1.00
  */
 public class Product {
     private String prodId;
@@ -14,7 +15,13 @@ public class Product {
     private double unitCost;
     private DiscountStrategy discount;
 
-    
+    /**
+     * This populates the product properties
+     * @param prodId
+     * @param prodName
+     * @param unitCost
+     * @param discount 
+     */
     public Product(String prodId, String prodName, double unitCost, DiscountStrategy discount) {
         this.prodId = prodId;
         this.prodName = prodName;
@@ -58,9 +65,5 @@ public class Product {
     public void setDiscount(DiscountStrategy discount) {
         this.discount = discount;
     }
-    public static void main(String[] args) {
-        Product shirt = new Product("blah","blah",20,new VariableRateDiscount(.30));        
-        double out = shirt.getDiscountAmt(5);
-        System.out.println("amt:" + out);
-}
+    
 }

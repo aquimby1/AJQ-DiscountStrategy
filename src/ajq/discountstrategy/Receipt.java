@@ -9,8 +9,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- *
+ * This is where the receipt is created and populated as well as constructed for the output
  * @author Andrew Quimby
+ * @version 1.00
  */
 class Receipt {
     private Customer customer;
@@ -29,7 +30,11 @@ class Receipt {
         
     }
 
-    
+    /**
+     * This creates a new line item then adds it to the lineItems array
+     * @param prodId
+     * @param qty 
+     */
     public void addItemToSale(String prodId, int qty) {
         LineItem item = new LineItem(prodId,qty);
         addToArray(item);
@@ -92,11 +97,4 @@ class Receipt {
         return output;
     }
     
-    
-    public static void main(String[] args) {
-        Receipt entry = new Receipt("100");
-        entry.addItemToSale("A101", 2);
-        System.out.println(entry.getLineItems()[0].getProduct().getProdName());
-    }
-    
-}
+ }
